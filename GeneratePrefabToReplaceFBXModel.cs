@@ -43,29 +43,7 @@ public class GeneratePrefabToReplaceFBXModel
                 obj1.transform.parent = _assetGameObject.transform.parent;
                 obj1.name = _assetGameObject.name;
                 GameObject.DestroyImmediate(_assetGameObject);
-            }
-            else if (PrefabUtility.GetPrefabAssetType(transChild.gameObject) == PrefabAssetType.NotAPrefab)
-            {
-                ++i;
-                for (int idx = 0; idx < transChild.childCount;)
-                {
-                    transChildsChild = transChild.GetChild(i);
-                    if (PrefabUtility.GetPrefabAssetType(transChildsChild.gameObject) == PrefabAssetType.Model)
-                    {
-                        _assetGameObject = transChildsChild.gameObject;
-                        cloneObj = GameObject.Instantiate<GameObject>(_assetGameObject);
-                        genPrefabFullName = string.Concat(modelAssetPath, "/prefab/", _assetGameObject.name, prefabExtension);
-                        Object prefabObj = PrefabUtility.CreateEmptyPrefab(genPrefabFullName);
-                        _gameObject = PrefabUtility.ReplacePrefab(cloneObj, prefabObj);
-                        GameObject obj1 = GameObject.Instantiate<GameObject>(_gameObject);
-                        obj1.transform.parent = _assetGameObject.transform.parent;
-                        obj1.name = _assetGameObject.name;
-                        GameObject.DestroyImmediate(_assetGameObject);
-                    }
-                    else
-                        ++idx;
-                }
-            }
+            }            
             else
                 ++i;
         }
