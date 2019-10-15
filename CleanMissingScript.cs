@@ -1,3 +1,7 @@
+using UnityEngine;
+using System.Collections.Generic;
+using UnityEditor;
+
 public class CleanMissingScript : EditorWindow
 {
     [MenuItem("Tools/CleanMissingScript")]
