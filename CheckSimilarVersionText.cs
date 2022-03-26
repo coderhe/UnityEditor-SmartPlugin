@@ -40,7 +40,7 @@ namespace UnityEditor
             string[] originalText = File.ReadAllLines("D:\\xxx\\original.txt");
             List<string> contents = null;
 
-            for (int i = 4; i < originalText.Length; ++i)
+            for (int i = 0; i < originalText.Length; ++i)
             {
                 if(originalText[i].Contains(":"))
                 {
@@ -56,7 +56,7 @@ namespace UnityEditor
 
             int nHeavy = 0;
             List<string> lstTemps = new List<string>();
-            for (int j = 4; j < destnationText.Length; ++j)
+            for (int j = 0; j < destnationText.Length; ++j)
             {
                 if (destnationText[j].Contains(":"))
                 {
